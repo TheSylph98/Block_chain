@@ -12,4 +12,4 @@
   - mine: để đào coin :v 
   - chain : trả lại chuỗi block chain
   - transactions/new: tạo giao dịch mới 
-  - nodes/resolve: giải quyết xung đột, bằng POW
+  - nodes/resolve: giải quyết xung đột, bằng consensus
