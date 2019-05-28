@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain</title>
+</head>
+<body>
+	{% if res.message %}
+	<p>{{res.message}}</p>
+	{% endif %}
+	<p><a href="{{ url_for('regis_node') }}">Register nodes</a></p>
+	<p><a href="{{ url_for('mine') }}">Mine</a></p>
+	<p>Nodes: </p>
+	{% for node in res.total_nodes %}
+	<li>{{node}}</li>
+	{% endfor %}
+</body>
+</html>

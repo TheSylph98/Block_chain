@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Blockchain </title>
+</head>
+<body>
+	{% if res.message %}
+	<p>{{res.message}}</p>
+	{% endif %}
+	<p><a href="{{ url_for('mine') }}"><strong>Mining</strong></a></p>
+	<p><strong>Tổng số block trong chuỗi</strong>: {{res.length}} </p>
+	{% for block in res.chain %}
+		<p>Block:	{{ block.index }}</p>
+		<p>Timestamp:	{{ block.timestamp }}</p>
+		<p>Proof: {{ block.proof }}</p>
+		<p>Prev_hash: {{ block.previous_hash }}</p>
+		<li>Transactions:	
+			{% for trans in block.transactions %}
+			<ul>
+			<li>sender: {{ trans.sender }} </li>
+			<li>recipient: {{ trans.recipient }} </li>
+			<li>amount: {{ trans.amount }} </li>
+			<br/>
+			</ul>
+			{% endfor %}
+		</li>
+		<hr/>
+	{% endfor %}
+	<!-- <p><a href="{{ url_for('mine') }}">Tiếp tục Đào</a></p> -->
+</body>
+</html>

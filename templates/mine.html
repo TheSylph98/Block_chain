@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Blockchain </title>
+    <!-- <style type="text/css">
+    .h2{
+    	color: red;
+    }	
+    </style> -->
+</head>
+<body>
+	<h2>{{ response.message }}</h2>
+	
+	<p><strong>Block</strong>:	{{ response.index }}</p>
+	<p><strong>Hash</strong>:	{{ response.hash }}</p>
+	<p><strong>Timestamp</strong>:	{{ response.timestamp }}</p>
+	<p><strong>Proof</strong>: {{ response.proof }}</p>
+	<p><strong>Previous hash</strong>: {{ response.previous_hash }}</p>
+	<p><strong>Transactions</strong>:
+	<ul>	
+		{% for trans in response.transactions %}
+		<ul>
+		<li>sender: {{ trans.sender }} </li>
+		<li>recipient: {{ trans.recipient }} </li>
+		<li>amount: {{ trans.amount }} </li>
+		<br/>
+		</ul>
+		{% endfor %}
+	</ul>	
+	</p>
+	<form method="GET">
+		<input type="submit" name="mine" value="MINE" href="mine.html">
+	</form>
+	<p><a href="{{ url_for('full_chain') }}">Full blockchain</a></p>
+	<p><a href="{{ url_for('new_trans') }}">New transaction</a></p>
+	<p><a href="{{ url_for('regis_node') }}">Register nodes</a></p>
+	<p><a href="{{ url_for('consensus') }}">Resolve conflicts</a></p>
+</body>
+</html>
